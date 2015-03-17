@@ -6,7 +6,7 @@
 //TODO: Only have one *in progress* per file, don't need to be on same line to use it..maybe?
 
 
-window.$ = window.jQuery = require('./jquery.js');
+//window.$ = window.jQuery = require('./jquery.js');
 //require('./date.js');
 
 insertCurrentTime = function(editor, startTime) {
