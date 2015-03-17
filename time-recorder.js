@@ -61,9 +61,6 @@ calculateTimeTaken = function(editor, line) {
     x /= 24
     days = Math.trunc(x);
 
-    if (hours < 10) {
-        hours = '0' + hours;
-    }
     if (minutes < 10) {
         minutes = '0' + minutes;
     }
@@ -92,8 +89,8 @@ calculateTotalTime = function(editor, selectedText) {
 
     for(var i = 0;i < lines.length;i++) {
         var duration = lines[i].substr(24, 5);
-        var hours = duration.substr(0,2);
-        var minutes = duration.substr(3,2);
+        var hours = duration.substr(0,1);
+        var minutes = duration.substr(2,2);
         console.log(duration);
         console.log(hours);
         console.log(minutes);
@@ -111,6 +108,8 @@ calculateTotalTime = function(editor, selectedText) {
 	totalMinutes = (totalMinutes % 60);
     if (totalMinutes === 5) {
         totalMinutes = '05';
+    } else if (totalMinutes === 0) {
+        totalMinutes = '00';
     }
 
     editor.moveToEndOfLine();
