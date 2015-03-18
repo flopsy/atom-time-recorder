@@ -71,13 +71,16 @@ calculateTimeTaken = function(editor, line) {
     console.log(hours);
     console.log(days);
 
+    //Get line, replace *In progress* with time taken etc
+    var workDone = line.substr(29);
+
     editor.moveToBeginningOfLine();
     editor.selectToEndOfLine();
 
     var endTimeOnly = endTimeRounded.toFormattedString().substr(9,14);
     var updatedTime = startTimeFormatted + ' - ' + endTimeOnly;
     var timeTaken = '(' + hours + ':' + minutes + ')';
-    return editor.insertText(updatedTime + ' ' + timeTaken);
+    return editor.insertText(updatedTime + ' ' + timeTaken + ' ' + workDone);
 };
 
 calculateTotalTime = function(editor, selectedText) {
