@@ -11,6 +11,7 @@ forever.
 
 
 -- This was a really quick & dirty exercise so the code is not good. --
+<<<<<<< HEAD
 
 ###How to use:
 
@@ -51,3 +52,5 @@ You can record time periods longer than 12 hours and shorter than 24 hours, resu
 10/05/15 08:50 - 21:50 (13:00)
 </pre>
 but the total calculator won't work.  If you want to calculate periods > 12 hours at a time, you'll need to add this functionality yourself.
+=======
+>>>>>>> 7bd94267141d6e952c26d726eace0b07bc2b000d
