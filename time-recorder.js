@@ -85,7 +85,7 @@ calculateTimeTaken = function(editor, line) {
 
 calculateTotalTime = function(editor, selectedText) {
 
-	var totalHours = 0;
+  var totalHours = 0;
     var totalMinutes = 0;
 
     lines = selectedText.split("\n");
@@ -108,7 +108,7 @@ calculateTotalTime = function(editor, selectedText) {
 
     console.log(totalMinutes / 60);
     totalHours += Math.trunc(totalMinutes / 60);
-	totalMinutes = (totalMinutes % 60);
+  totalMinutes = (totalMinutes % 60);
     if (totalMinutes === 5) {
         totalMinutes = '05';
     } else if (totalMinutes === 0) {
@@ -124,9 +124,10 @@ calculateTotalTime = function(editor, selectedText) {
 
 };
 
-atom.workspaceView.command('dot-atom:time-recorder', function() {
+atom.commands.add('atom-text-editor', {
+    'dot-atom:time-recorder': function() {
   var editor;
-  editor = atom.workspace.activePaneItem;
+  editor = atom.workspace.getActiveTextEditor();
 
   var selectedText = editor.getSelectedText();
   if (!selectedText) {
@@ -145,9 +146,9 @@ atom.workspaceView.command('dot-atom:time-recorder', function() {
           return insertCurrentTime(editor, now);
       }
   } else { //Text selected, calculate total time
-      calculateTotalTime(editor, selectedText);
+      return calculateTotalTime(editor, selectedText);
   }
-});
+}});
 
 String.prototype.padLeft = function (length, character) {
     return new Array(length - this.length + 1).join(character || ' ') + this;
